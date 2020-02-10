@@ -8,6 +8,8 @@ Sub::Daemon - base class for a deamons
 
 use 5.014;
 
+our $VERSION = '0.01';
+
 use base 'Class::Accessor';
 __PACKAGE__->mk_ro_accessors( qw( pid log logdir piddir logfile pidfile debug loglevel) );
 
@@ -16,7 +18,6 @@ use POSIX ":sys_wait_h";
 use File::Pid;
 use Sub::Daemon::Log;
 use Carp;
-
 
 
 sub new {
