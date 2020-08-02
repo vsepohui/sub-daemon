@@ -1,3 +1,6 @@
+0.04  02-08-2020
+  - Add some simple tests
+  - Add example
 0.03  02-08-2020
   - Exclude .git from tarball
 0.02  02-08-2020

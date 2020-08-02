@@ -2,13 +2,13 @@ package Sub::Daemon;
 
 =head1 NAME
 
-Sub::Daemon - base class for a deamons
+Sub::Daemon - base class for a daemons
 
 =cut
 
 use 5.014;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use base 'Class::Accessor';
 __PACKAGE__->mk_ro_accessors( qw( pid log logdir piddir logfile pidfile debug loglevel) );
@@ -17,6 +17,7 @@ use AnyEvent;
 use POSIX ":sys_wait_h";
 use File::Pid;
 use Sub::Daemon::Log;
+use FindBin;
 use Carp;
 
 
@@ -102,8 +103,10 @@ sub _daemonize {
         'debug' => undef,
         @_,
     );
+    
+    my $debug = $opts{'debug'} // $self->debug;
 
-    return $self->pid_write() if $self->debug;
+    return $self->pid_write() if $debug;
     if (my $pid = $self->pid_check()) {
         die "Already running: $pid\n" ;
     }
@@ -116,7 +119,7 @@ sub _daemonize {
         exit;
     }
 
-    die "Can't <chdir> to ".HOME_DIR()."/script: $!" unless chdir HOME_DIR;
+    die "Can't <chdir> to $FindBin::Bin/script: $!" unless chdir $FindBin::Bin;
     umask 0;
     die "Cannot detach from controlling terminal" if POSIX::setsid() < 0;
     # Второй fork
@@ -323,6 +326,24 @@ sub spawn {
     $self->log->info("Daemon finished");
 
     return;
+}
+
+sub stop {
+	my $self = shift;
+	
+	$self->log->info("Stopping daemon");
+	
+	my $pidfile = $self->pidfile();
+	open my $fi, $pidfile;
+	my $pid = <$fi>;
+	chomp $pid;
+	close $fi;
+	
+	if (kill 0, $pid) {
+		kill 'TERM', $pid;
+	} else {
+		die "Couldn't send kill 0 to master process";
+	}
 }
 
 1;

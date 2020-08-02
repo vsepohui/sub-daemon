@@ -4,7 +4,7 @@
       "trunaev <trunaev@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Module::Build version 0.4224",
+   "generated_by" : "Module::Build version 0.4216",
    "keywords" : [
       "Perl",
       "Daemon",
@@ -52,6 +52,6 @@
          "url" : "https://github.com/trunaev/sub-daemon"
       }
    },
-   "version" : "0.03",
-   "x_serialization_backend" : "JSON::PP version 2.27300_01"
+   "version" : "0.04",
+   "x_serialization_backend" : "JSON::PP version 2.27300"
 }
