@@ -1,2 +1,6 @@
+0.03  02-08-2020
+  - Exclude .git from tarball
+0.02  02-08-2020
+  - Fix Build.PL
 0.01  10-02-2020
   - Init version

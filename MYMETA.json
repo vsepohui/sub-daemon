@@ -52,6 +52,6 @@
          "url" : "https://github.com/trunaev/sub-daemon"
       }
    },
-   "version" : "0.01",
+   "version" : "0.03",
    "x_serialization_backend" : "JSON::PP version 2.27300_01"
 }

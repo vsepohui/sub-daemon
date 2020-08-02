@@ -8,7 +8,7 @@ Sub::Daemon - base class for a deamons
 
 use 5.014;
 
-our $VERSION = '0.01';
+our $VERSION = '0.03';
 
 use base 'Class::Accessor';
 __PACKAGE__->mk_ro_accessors( qw( pid log logdir piddir logfile pidfile debug loglevel) );
