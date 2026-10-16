@@ -8,7 +8,7 @@ Sub::Daemon - base class for a daemons
 
 use 5.014;
 
-our $VERSION = '0.1';
+our $VERSION = '0.11';
 
 use base 'Accessor';
 
