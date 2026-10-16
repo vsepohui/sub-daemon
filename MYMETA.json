@@ -1,57 +1,42 @@
 {
-   "abstract" : "Perl class for creating daemons",
+   "abstract" : "unknown",
    "author" : [
-      "trunaev <trunaev@gmail.com>"
+      "Ivan Trunaev"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Module::Build version 0.4216",
-   "keywords" : [
-      "Perl",
-      "Daemon",
-      "fork",
-      "workers",
-      "child",
-      "processes"
-   ],
+   "generated_by" : "ExtUtils::MakeMaker version 7.70, CPAN::Meta::Converter version 2.150010",
    "license" : [
-      "perl_5"
+      "unknown"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
-      "version" : "2"
+      "version" : 2
    },
    "name" : "Sub-Daemon",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc"
+      ]
+   },
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Test::More" : "0"
+            "ExtUtils::MakeMaker" : "0"
          }
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.40"
+            "ExtUtils::MakeMaker" : "0"
          }
       },
       "runtime" : {
          "requires" : {
-            "AnyEvent" : "0",
-            "Carp" : "0",
-            "Fcntl" : "0",
-            "File::Pid" : "0",
-            "POSIX" : "0",
-            "perl" : "5.014"
+            "File::Pid" : "1.01"
          }
       }
    },
    "release_status" : "stable",
-   "resources" : {
-      "license" : [
-         "http://dev.perl.org/licenses/"
-      ],
-      "repository" : {
-         "url" : "https://github.com/trunaev/sub-daemon"
-      }
-   },
-   "version" : "0.04",
-   "x_serialization_backend" : "JSON::PP version 2.27300"
+   "version" : "0.1",
+   "x_serialization_backend" : "JSON::PP version 4.16"
 }
