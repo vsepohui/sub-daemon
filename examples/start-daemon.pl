@@ -6,7 +6,7 @@ use Sub::Daemon;
 
 my $i = 0;
 
-my $daemon = Sub::Daemon->new();
+my $daemon = Sub::Daemon->new(debug => 0);
 
 $daemon->_daemonize();
 
@@ -19,7 +19,7 @@ $daemon->spawn(
 			sleep 1;
 			warn "Loop... iter = $i";
 			$i++;
-			last if $i>=10;
+		#	last if $i>=10;
 		}
 		
 		$daemon->stop();

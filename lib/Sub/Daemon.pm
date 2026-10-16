@@ -8,10 +8,9 @@ Sub::Daemon - base class for a daemons
 
 use 5.014;
 
-our $VERSION = '0.04';
+our $VERSION = '0.1';
 
-use base 'Class::Accessor';
-__PACKAGE__->mk_ro_accessors( qw( pid log logdir piddir logfile pidfile debug loglevel) );
+use base 'Accessor';
 
 use AnyEvent;
 use POSIX ":sys_wait_h";
@@ -39,6 +38,7 @@ sub new {
     unless ($logfile && $pidfile) {
         my $filename = $0;
         $filename =~ s/^.*\///;
+        $filename =~ s/(\.)[^\.]+//;
         $logfile ||= $filename . '.log';
         $pidfile ||= $filename . '.pid';
     }
